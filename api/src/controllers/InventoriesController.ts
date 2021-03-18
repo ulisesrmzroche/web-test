@@ -10,7 +10,7 @@ export class InventoriesController {
       const inventory = await Inventory.create(req.body)
       return res.status(201).json(inventory)
     } catch (e) {
-      return res.sendError(e)
+      return res.sendStatus(400)
     }
   }
 }
