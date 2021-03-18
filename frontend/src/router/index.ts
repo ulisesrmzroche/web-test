@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import Reservations from '../views/Reservations.vue'
 import NewReservation from '../views/NewReservation.vue'
 import NewInventory from '../views/NewInventory.vue'
+import Inventories from '../views/Inventories.vue'
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,11 @@ const routes: Array<RouteConfig> = [
     path: '/reservations/new',
     name: 'NewReservation',
     component: NewReservation
+  },
+  {
+    path: '/inventories',
+    name: 'Inventories',
+    component: Inventories
   },
   {
     path: '/inventories/new',

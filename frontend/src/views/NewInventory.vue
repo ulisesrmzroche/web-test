@@ -25,6 +25,18 @@
       type="number"
     />
     <FormulateInput
+      name="calendar_date"
+      label="What is the calendar date? (default today)"
+      type="date"
+      label="Reservation Date"
+      placeholder="2021-03-15"
+      help="UTC Format: YYYY-MM-DD"
+      validation="required|after:2021-01-01"
+      min="2021-01-01"
+      max="2021-12-31"
+      error-behavior="live"
+    />
+    <FormulateInput
       type="submit"
       label="Sign up"
     />
@@ -47,9 +59,11 @@ export default {
         try {
           this.inventory = await axios.post('http://localhost:9090/inventories', data)
           alert(`Successfully Created Inventory`)
-          this.router.transition('/inventories/:id', this.inventory.id)
+          this.$router.push('/inventories')
         } catch (e) {
           alert(`There was an error: ${e}. Try fixing it...`);
+          // FIXME: hard refresh to clear model
+          this.$router.go()
         }
         
     }

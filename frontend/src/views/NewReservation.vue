@@ -3,6 +3,7 @@
     <h1>New Reservation</h1>
     <FormulateForm
       v-model="reservation"
+      @submit="submitHandler"
     >
     <FormulateInput
       name="name"
@@ -17,19 +18,26 @@
       type="email"
     />
     <FormulateInput
-      name="partySize"
+      name="party_size"
       label="What is your party size?"
       type="select"
       :options="['1', '2', '3', '4', '5', '6']"
     />
     <FormulateInput
-      name="reservationDate"
+      name="reservation_date"
       label="What is the reservation date??"
       type="date"
+      label="Reservation Date"
+      placeholder="2021-03-15"
+      help="UTC Format: YYYY-MM-DD"
+      validation="required|after:2021-01-01"
+      min="2021-01-01"
+      max="2021-12-31"
+      error-behavior="live"
     />
     
     <FormulateInput
-      name="reservationTime"
+      name="reservation_time"
       label="What is the reservation time??"
       type="select"
       :option-groups="{
@@ -98,17 +106,12 @@
 import axios from 'axios'
 export default {
   name: 'NewReservation',
-    data () {
-    return {
-      reservation: {}
-    }
-  },
   methods: {
     async submitHandler (data) {
         try {
           const reservation = await axios.post('http://localhost:9090/reservations', data)
           alert(`Successfully Created Reservation`)
-          this.router.transition('/reservations/:id', reservation.id)
+          this.$router.transition('/reservations/:id', reservation.id)
         } catch (e) {
           alert(`There was an error: ${e}. Try fixing it...`);
         }

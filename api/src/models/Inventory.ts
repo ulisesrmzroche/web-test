@@ -24,6 +24,9 @@ import {
   
     @Column
     evening_reservations_count: string
+
+    @Column
+    reservation_date: string
   
     @DeletedAt
     deleted_at: string

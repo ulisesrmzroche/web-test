@@ -1,4 +1,4 @@
-import { Controller, Post } from '@overnightjs/core'
+import { Controller, Post, Get } from '@overnightjs/core'
 import { Request, Response } from 'express'
 import { Reservation } from '../models/Reservation'
 
@@ -13,4 +13,16 @@ export class ReservationsController {
       return res.sendStatus(400)
     }
   }
+   // GET '/inventories
+   @Get('')
+   private async getAll(req: Request, res: Response) {
+     try {
+       const reservations = await Reservation.findAll();
+       return res.status(200).json({
+         reservations,
+       })
+     } catch (error) {
+       return res.sendStatus(400)
+     }
+   }
 }

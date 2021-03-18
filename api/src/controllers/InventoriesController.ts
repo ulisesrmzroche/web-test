@@ -20,7 +20,7 @@ export class InventoriesController {
     try {
       if (req.params.date === 'today') {
         const inventory = await Inventory.findOne({
-          where: { created_at: {
+          where: { calendar_date: {
             $gt: new Date().setHours(0, 0, 0, 0),
             $lt: new Date()
           }}
