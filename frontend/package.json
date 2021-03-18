@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@braid/vue-formulate": "^2.5.2",
-    "@cone2875/vue-formulate-datetime": "^0.1.2",
     "axios": "^0.19.2",
     "buefy": "^0.9.4",
     "core-js": "^3.6.5",
