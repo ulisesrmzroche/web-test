@@ -23,13 +23,13 @@
       :options="['1', '2', '3', '4', '5', '6']"
     />
     <FormulateInput
-      name="date"
+      name="reservationDate"
       label="What is the reservation date??"
       type="date"
     />
     
     <FormulateInput
-      name="time"
+      name="reservationTime"
       label="What is the reservation time??"
       type="select"
       :option-groups="{
