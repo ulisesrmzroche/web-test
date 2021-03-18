@@ -111,7 +111,7 @@ export default {
         try {
           const reservation = await axios.post('http://localhost:9090/reservations', data)
           alert(`Successfully Created Reservation`)
-          this.$router.transition('/reservations/:id', reservation.id)
+          this.$router.transition('/reservations')
         } catch (e) {
           alert(`There was an error: ${e}. Try fixing it...`);
         }
