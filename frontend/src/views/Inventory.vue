@@ -21,13 +21,13 @@
       return {
         inventory: this.inventory,
       }
-    }
+    },
     async mounted() {
       try {
         this.inventory = await axios.get(`http://localhost:9090/inventories?date=today`)
       } catch (error) {
-        alert("You have not created an inventory for today. Taking you to make one...)
-        this.router.push('/inventories/new')
+        alert("You have not created an inventory for today. Taking you to make one...")
+        this.$router.push('/inventories/new')
       }
     }
   }
