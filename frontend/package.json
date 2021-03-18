@@ -9,12 +9,16 @@
   },
   "dependencies": {
     "@braid/vue-formulate": "^2.5.2",
+    "@cone2875/vue-formulate-datetime": "^0.1.2",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
+    "luxon": "^1.26.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
+    "vue-datetime": "^1.0.0-beta.14",
     "vue-property-decorator": "^8.4.2",
-    "vue-router": "^3.2.0"
+    "vue-router": "^3.2.0",
+    "weekstart": "^1.1.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.33.0",

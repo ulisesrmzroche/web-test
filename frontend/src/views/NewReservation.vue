@@ -25,7 +25,8 @@
     <FormulateInput
       name="date"
       label="What is the reservation date??"
-      type="date"
+      type="vue-datetime"
+      datetype="datetime"
     />
     <FormulateInput
       name="time"
