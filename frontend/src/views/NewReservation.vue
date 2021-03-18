@@ -27,7 +27,6 @@
       name="reservation_date"
       label="What is the reservation date??"
       type="date"
-      label="Reservation Date"
       placeholder="2021-03-15"
       help="UTC Format: YYYY-MM-DD"
       validation="required|after:2021-01-01"

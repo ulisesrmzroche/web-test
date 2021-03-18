@@ -28,7 +28,6 @@
       name="calendar_date"
       label="What is the calendar date? (default today)"
       type="date"
-      label="Reservation Date"
       placeholder="2021-03-15"
       help="UTC Format: YYYY-MM-DD"
       validation="required|after:2021-01-01"

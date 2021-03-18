@@ -3,7 +3,7 @@
     <h1>Inventories</h1>
     <div v-if="inventories && inventories.length">
       <ul class="inventories-list">
-        <li v-for="i in inventories" :key="r.id">
+        <li v-for="i in inventories" :key="i.id">
           {{ i.calendar_date }}
         </li>
       </ul>

@@ -4,8 +4,11 @@ import {
     DeletedAt,
     Model,
     PrimaryKey, Table,
-    UpdatedAt
+    UpdatedAt,
+    BelongsTo,
+    ForeignKey,
   } from 'sequelize-typescript'
+  import { Inventory } from '../models/Inventory'
   
   @Table({ tableName: 'reservations' })
   export class Reservation extends Model<Reservation> {
@@ -20,7 +23,7 @@ import {
     email: string
   
     @Column
-    partySize: string
+    party_size: string
 
     @Column
     reservation_date: string
@@ -36,5 +39,12 @@ import {
   
     @UpdatedAt
     updated_at: string
+
+    @ForeignKey(() => Inventory)
+    @Column
+    teamId: number
+
+    @BelongsTo(() => Inventory)
+    inventory: Inventory
   }
   

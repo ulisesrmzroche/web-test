@@ -38,12 +38,7 @@ import {
     updated_at: string
 
     @HasMany(() => Reservation)
-    morning_reservations: Reservation[]
+    reservations: Reservation[]
 
-    @HasMany(() => Reservation)
-    afternoon_reservations: Reservation[]
-    
-    @HasMany(() => Reservation)
-    evening_reservations: Reservation[]
   }
   
