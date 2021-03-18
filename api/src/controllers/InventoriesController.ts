@@ -1,20 +1,40 @@
-import { Controller, Post } from '@overnightjs/core'
+import { Controller, Post, Get } from '@overnightjs/core'
 import { Request, Response } from 'express'
 import { Inventory } from '../models/Inventory'
 
 @Controller('inventories')
 export class InventoriesController {
-  @Post()
+  @Post('')
   private async add(req: Request, res: Response) {
-    const { morningReservations, afternoonReservations, eveningReservations } = req.body
     try {
-      const inventory = await Inventory.create({
-        morning_reservations_count: morningReservations,
-        afternoon_reservations_count: afternoonReservations,
-        evening_reservations_count: eveningReservations,
-      })
+      const inventory = await Inventory.create(req.body)
       return res.status(201).json(inventory)
     } catch (e) {
+      return res.sendStatus(400)
+    }
+  }
+  
+  // GET '/inventories
+  @Get('')
+  private async getAll(req: Request, res: Response) {
+    try {
+      if (req.params.date === 'today') {
+        const inventory = await Inventory.findOne({
+          where: { created_at: {
+            $gt: new Date().setHours(0, 0, 0, 0),
+            $lt: new Date()
+          }}
+        })
+        return res.status(200).json({
+          inventory,
+        })
+      }
+
+      const inventories = await Inventory.findAll();
+      return res.status(200).json({
+        inventories,
+      })
+    } catch (error) {
       return res.sendStatus(400)
     }
   }

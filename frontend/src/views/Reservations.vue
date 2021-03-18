@@ -9,10 +9,14 @@ import axios from 'axios'
 
 export default {
   name: 'Reservations',
-
+  data () {
+    return {
+      reservations: this.reservations,
+    }
+  }
   async mounted() {
     try {
-      await axios.get('http://localhost:9090/test')
+      this.reservations = await axios.get('http://localhost:9090/reservations')
     } catch (error) {
       console.error(error)
     }

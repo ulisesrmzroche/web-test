@@ -102,6 +102,16 @@ export default {
     return {
       reservation: {}
     }
+  },
+  methods: {
+    async submitHandler (data) {
+        try {
+          const reservation = await axios.post('http://localhost:9090/reservations', data)
+          alert(`Successfully Created Reservation`)
+          this.router.transition('/reservations/:id', reservation.id)
+        } catch (e) {
+          alert(`There was an error: ${e}. Try fixing it...`);
+        }
   }
 }
 </script>
