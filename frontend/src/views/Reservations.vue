@@ -13,7 +13,7 @@ export default {
     return {
       reservations: this.reservations,
     }
-  }
+  },
   async mounted() {
     try {
       this.reservations = await axios.get('http://localhost:9090/reservations')

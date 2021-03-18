@@ -95,7 +95,7 @@
   
 </template>
 <script>
-
+import axios from 'axios'
 export default {
   name: 'NewReservation',
     data () {
@@ -112,6 +112,7 @@ export default {
         } catch (e) {
           alert(`There was an error: ${e}. Try fixing it...`);
         }
+    }
   }
 }
 </script>
