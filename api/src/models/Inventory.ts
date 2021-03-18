@@ -14,14 +14,17 @@ import {
     id: number
   
     @Column
-    morningReservations: string
+    morning_reservations: string
   
     @Column
-    afternoonReservations: string
+    afternoon_reservations: string
+  
+    @Column
+    evening_reservations: string
   
     @DeletedAt
-    eveningReservations: string
-  
+    deleted_at: string
+    
     @CreatedAt
     created_at: string
   
