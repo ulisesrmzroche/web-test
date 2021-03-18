@@ -7,11 +7,10 @@ export class InventoriesController {
   @Post()
   private async add(req: Request, res: Response) {
     try {
-      const inventory = new Inventory(req.body)
-      inventory.save()
-      return res.sendStatus(200)
+      const inventory = await Inventory.create(req.body)
+      return res.status(201).json(inventory)
     } catch (e) {
-      return res.sendStatus(400)
+      return res.sendError(e)
     }
   }
 }
