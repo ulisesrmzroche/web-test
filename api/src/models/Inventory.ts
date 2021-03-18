@@ -4,8 +4,11 @@ import {
     DeletedAt,
     Model,
     PrimaryKey, Table,
-    UpdatedAt
+    UpdatedAt,
+    HasMany
   } from 'sequelize-typescript'
+
+  import { Reservation } from './Reservation'
   
   @Table({ tableName: 'inventories' })
   export class Inventory extends Model<Inventory> {
@@ -14,13 +17,13 @@ import {
     id: number
   
     @Column
-    morning_reservations: string
+    morning_reservations_count: string
   
     @Column
-    afternoon_reservations: string
+    afternoon_reservations_count: string
   
     @Column
-    evening_reservations: string
+    evening_reservations_count: string
   
     @DeletedAt
     deleted_at: string
@@ -30,5 +33,14 @@ import {
   
     @UpdatedAt
     updated_at: string
+
+    @HasMany(() => Reservation)
+    morning_reservations: Reservation[]
+
+    @HasMany(() => Reservation)
+    afternoon_reservations: Reservation[]
+    
+    @HasMany(() => Reservation)
+    evening_reservations: Reservation[]
   }
   
